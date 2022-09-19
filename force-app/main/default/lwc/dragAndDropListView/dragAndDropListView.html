@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-wrap">
+            <template for:each={dataToshow} for:item="account">
+            <div class={classList} key={account.Id} style="padding-left:12px; padding-right:12px">
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small" style="border:2px solid rgb(189 194 219); height:100px; width:60px; background-color: rgb(189 194 219); border-radius:20px">.slds-size_1-of-2</div>
+            </div>
+        </template> 
+        </div>
+        <template if:true={showmore}>
+            <lightning-button label="Show More" class="slds-align_absolute-center" variant="brand" onclick={dataToShowMore}></lightning-button>
+        </template>
+        <template if:true={showLess}>
+            <lightning-button label="Show Less" class="slds-align_absolute-center" variant="brand" onclick={dataToShowLess}></lightning-button>
+        </template>
+    </lightning-card>
+</template>

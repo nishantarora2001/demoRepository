@@ -1,0 +1,12 @@
+<aura:component controller="QueryBuilderLightning" implements="forceCommunity:availableForAllPageTypes">   
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="country" type="Contact" default="{ sobjectType: 'Contact' }" />
+
+
+  <ui:inputSelect label = "country" aura:id="InputSelectDynamic">
+    <aura:iteration items="{!v.country.LastName}" var="CountryName">
+           <ui:inputSelectOption text="{!CountryName}" label="{!CountryName}"/>
+    </aura:iteration>
+
+  </ui:inputSelect> 
+</aura:component>

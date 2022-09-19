@@ -1,0 +1,110 @@
+<template>
+    <lightning-card style="width: 500px;">
+
+        <div class="slds-page-header header-margin">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <lightning-icon icon-name="standard:file" size="medium"> </lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" title="Upload File">Upload File</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fileUpload slds-align_absolute-center" data-id="file" ondragover={handleDragover}
+            ondrop={handleDrop} onclick={handleClick}>
+            <lightning-icon icon-name="utility:download" size="large" class="downloadIcon"> </lightning-icon>
+
+            
+            <p><b>Choose a file</b> or Drag it here</p>
+        </div>
+        <lightning-button class="showButton" label="show files" variant="Brand" onclick={showPopUp}></lightning-button>
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal/PopUp Box header LWC</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                        <thead>
+                            <tr class="slds-line-height_reset ">
+                                <th >
+                                     <div class="slds-truncate" title="Title" >Title</div>
+                                </th>
+                                <th >
+                                    <div class="slds-truncate" title="Extension" >Extension</div>
+                               </th>
+                                <th >
+                                    <div class="slds-truncate" title="Document Id" >Document Id</div>
+                                </th>
+                               
+                               
+                            </tr>
+    
+                        </thead>
+                        <tbody>
+                            <template for:each={fileDetails} for:item="item" for:index="index">
+                            <tr data-index={index} class="slds-hint-parent" key={item.Id}>
+                                <td data-index={index}>
+                                    <div>{item.Title}</div>
+                                </td>
+                                <td >
+                                    
+                                       <div>{item.FileExtension}</div>
+                                    
+                                </td>
+                                <td >
+                                    <div>{item.Id}</div>
+                                </td>
+                                <td >
+                                    <lightning-button data-index={index} label="view" onclick={viewButton} variant="Brand"></lightning-button>
+                
+                                    </td>
+                                   
+                                
+                            </tr>
+                        </template>
+                        </tbody>
+                        </table> 
+                     
+                   
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        
+    </lightning-card>
+    
+    <div class="borderClass">
+        <iframe  src="/apex/PspdfWebViewer"  style="border: none; height:100vh;" width="100%"></iframe>
+    </div>
+
+
+    
+</template>

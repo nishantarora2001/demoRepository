@@ -1,0 +1,9 @@
+<aura:component controller="pickListRecords">
+    <aura:attribute name="UserNames" type="list"/>
+    <aura:handler name="init" value="{!this}" action="{!c.Init}" />
+    
+    <lightning:input label="userName" onchange="{!c.takeRecords}"/>
+    <aura:if isTrue="{!v.boolValue==True}">
+    <lightning:button label="Login" variant="Brand" onclick="{!c.loginPage}"/>
+        </aura:if>
+</aura:component>

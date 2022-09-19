@@ -1,0 +1,55 @@
+<template>
+    <lightning-card>
+        <div class="slds-header">Video Content</div>
+    <lightning-input type="search" class="slds-align_absolute-center searchbar" value={keyword} placeholder="Search"
+    onchange={handleSearch} style="width:fit-content">
+    </lightning-input>
+    <div class="slds-grid slds-gutters">
+        <div  class="slds-col slds-size_2-of-12">
+            <lightning-checkbox-group name="Checkbox Group"
+            label="Choose Interest"
+            options={Options}
+            value={values}
+           
+            onchange={handleChange} class="border2"></lightning-checkbox-group>
+
+        </div>
+        <div class="slds-col">
+            
+           <lightning-layout class="border1 slds-scrollable" multiple-rows="true">
+            <template for:each={visibleData} for:item="video" for:index="index">
+               <lightning-layout-item key={video} size="4">
+                <iframe style="width:350px; padding:15px" src={video.Links__c} frameborder="0" height="px" width="100%"  allowfullscreen="true"></iframe>
+                <p>{video.Name}</p>
+               </lightning-layout-item>
+            </template>
+           </lightning-layout>
+       
+       
+        
+
+        </div>
+    </div>
+
+    <!-- <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="2" class="border2">
+            <lightning-checkbox-group name="Checkbox Group"
+            label="Choose Interest"
+            options={Options}
+            value={values}
+           
+            onchange={handleChange}></lightning-checkbox-group>
+
+        </lightning-layout-item>
+
+        <lightning-layout-item size="10" class="boredr1">
+            <template for:each={visibleData} for:item="video" for:index="index">
+                <lightning-layout key={video} multiple-rows="true">
+                    <iframe style="width:350px; padding:15px" src={video.Links__c} frameborder="0" height="px" width="100%"  allowfullscreen="true"></iframe>
+
+                </lightning-layout>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout> -->
+</lightning-card>
+</template>

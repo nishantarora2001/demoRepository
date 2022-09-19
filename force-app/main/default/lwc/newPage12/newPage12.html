@@ -1,0 +1,57 @@
+<template>
+
+    <lightning-card title="Account Records" icon-name="standard:account">
+      <div class="c-container">
+        <div class="layout">
+  
+          <template for:each={data} for:item="dataVal" for:index="index">
+  
+            <div key={dataVal.accountName}>
+              <lightning-layout vertical-align="stretch" multiple-rows="true" class="x-large">
+  
+                <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                  <lightning-input type="String" label="Account Name" name="accountName" value={dataVal.accountName}
+                    onchange={handleChange} required></lightning-input>
+                </lightning-layout-item>
+  
+                <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                  <lightning-input type="url" label="Website" name="accountWebsite" value={dataVal.accountWebsite}
+                    onchange={handleChange}>
+                  </lightning-input>
+                </lightning-layout-item>
+  
+                <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+                  <lightning-input type="number" name="accountRevenue" label="Annual Revenue" formatter="currency"
+                    value={dataVal.accountRevenue} onchange={handleChange}></lightning-input>
+                </lightning-layout-item>
+  
+                <lightning-layout-item>
+  
+                  <div class="slds-p-top_medium">
+  
+                    <lightning-icon icon-name="action:new" access-key={dataVal.id} id={index} alternative-text="Add Row"
+                      size="small" title="Add Row" onclick={handleAdd}>
+                    </lightning-icon>
+  
+                    <lightning-icon icon-name="action:delete" access-key={dataVal.id} id={index}
+                      alternative-text="Delete Row" size="small" title="Delete Row" onclick={handleRemove}>
+                    </lightning-icon>
+  
+                  </div>
+                </lightning-layout-item>
+              </lightning-layout>
+            </div>
+          </template>
+        </div>
+      </div>
+  
+      <!-- FOOTER STARTS HERE -->
+      <p slot="footer">
+        <lightning-button variant="brand" label="Create All" disabled={isInsertDisabled} title="Primary action"
+          onclick={handleSubmit} class="">
+        </lightning-button>
+      </p>
+      <!-- FOOTER ENDS HERE -->
+  
+    </lightning-card>
+  </template>

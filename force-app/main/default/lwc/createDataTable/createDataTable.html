@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Insert Contact" icon-name="standard:contact">
+            <div class="slds-p-around_x-small slds-clearfix slds-m-bottom_x-large slds-align_absolute-center  slds-m-left_xx-large slds-m-right_xx-large">
+                
+                    <div class="slds-float_left slds-m-right_xx-large  " style="width: 200px;"><lightning-input label="FirstName" value={rec.FirstName} onchange={handleEvent}></lightning-input></div>
+                    <div class="slds-float_left slds-m-right_xx-large" style="width: 200px;"><lightning-input label="LastName" value={rec.LastName} onchange={handleEvent}></lightning-input></div>
+                    <div class="slds-float_left slds-m-right_xx-large" style="width: 200px;"><lightning-input label="Title" value={rec.Title} onchange={handleEvent}></lightning-input></div>
+                    <div class="slds-float_left slds-m-right_xx-large" style="width: 200px;"><lightning-input label="Phone" value={rec.Phone} onchange={handleEvent}></lightning-input></div>
+                    <div class="slds-float_left slds-m-right_xx-large" style="width: 200px;"><lightning-input label="MailingCity" value={rec.MailingCity} onchange={handleEvent}></lightning-input></div>
+                    <div class="slds-float_left" style="width: 200px;"><lightning-input label="Email" value={rec.Email} onchange={handleEvent}></lightning-input></div>
+                <br/>
+            </div>
+            <div class="slds-align_absolute-center"><lightning-button label="Save" onclick={handleClick}></lightning-button></div>   
+        </lightning-card>
+        <lightning-card>
+            <lightning-datatable 
+             key-field="Id"
+             data={conList}
+             columns={columns}>
+
+        </lightning-datatable>
+        </lightning-card>
+</template>

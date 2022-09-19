@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Wire Testing">
+        <template if:true={contacts.data}>
+            <template for:each={contacts.data} for:item="item">
+                <p key={item.Id}>{item.Name}</p>
+            </template>
+        </template>
+        <template if:true={contacts.error}>
+            <div class="error">{contacts.error}</div>
+        </template>
+
+    </lightning-card>
+</template>

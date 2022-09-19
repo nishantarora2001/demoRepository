@@ -1,0 +1,24 @@
+.slds-modal__container.popup2::before.slds-modal__container{ 
+    max-width: none;
+    width: 60%;
+    opacity: 1;
+    
+    
+}
+.slds-modal__container.popup2{ 
+    height: 600px;
+    width: 700px;
+}
+.slds-modal__container.popup2::after.slds-modal__container{ 
+    max-width: none;
+    width: 60%;
+    opacity: 0.5;
+    
+    
+}
+.slds-modal__content{ 
+    height: 200px;
+}
+.slds-modal__content.popup3{ 
+    height:100px;
+}

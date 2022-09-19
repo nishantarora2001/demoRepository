@@ -1,0 +1,8 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Item One"> Content for tab 1 </lightning-tab>
+        <template if:true={showTabTwo}>
+            <lightning-tab label="Item Two"> Content for tab 2 </lightning-tab>
+        </template>
+    </lightning-tabset>
+</template>

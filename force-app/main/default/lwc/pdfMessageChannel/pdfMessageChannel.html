@@ -1,0 +1,19 @@
+<template>
+    <div class="swipe-container" ontouchend={handleSwipe}>
+        <!-- left action -->
+        <div class="action left">
+            <i class="material-icons">delete</i>
+        </div>
+        <!-- swipeable element -->
+        <div class="swipe-element">
+            Swipe me to the left or right
+        </div>
+        <!-- right action -->
+        <div class="action right">
+            <i class="material-icons">edit</i>
+        </div>
+    </div>
+
+    <!-- debug output -->
+    <p class="output">{message}</p>
+</template>

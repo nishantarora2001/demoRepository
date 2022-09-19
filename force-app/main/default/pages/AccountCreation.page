@@ -1,0 +1,19 @@
+<apex:page >
+    <script type="text/javascript">__sfdcSessionId = '{!$Api.Session_Id}';</script>
+    <script src="../../soap/ajax/30.0/connection.js" type="text/javascript"></script>
+<script>
+    function createAccount(Name ,Phone ){ 
+        var myAccount = new sforce.SObject("Account");
+        myAccount.Name= Name;
+        myAccount.Phone = Phone;
+        var results = sforce.connection.create([myAccount]);
+
+    }
+    window.addEventListener('message', (message)=>{
+        console.log(message.data);
+        var rec = message.data;
+        createAccount(rec.NAME , rec.PHONE);
+    });
+    
+    </script>
+</apex:page>

@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="File Preview">
+         <!-- <template for:each={filesList} for:item="file">
+             
+             <div key={file} class="slds-box">
+                 <div  class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                    <img src={file.thumbnailPath} alt={file.fileName} />
+                 </div>
+                 <div class="slds-grid slds-wrap">
+                     <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <p><strong>FileName - </strong>{file.label}</p>
+                     </div>
+                     <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <a href={file.url} download>Download</a>
+                     </div>
+                     <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <lightning-button label="Preview" 
+                       variant="brand"
+                      data-id={file.value}
+                      onclick={previewHandler}
+                       ></lightning-button>
+                     </div>
+                   </div>
+             </div>
+        
+         </template> -->
+         <div style="padding-left:300px">
+         <div style="border:0.5px solid gray; width:fit-content">
+            <lightning-icon style="border: 1px solid gray; margin-left:315px" size="small" icon-name="utility:expand" onclick={previewHandler}></lightning-icon>
+             <div>
+             <img src={url}  onclick={previewHandler} />
+             
+             
+            </div>
+          </div>
+           
+         
+       
+    </div>
+    </lightning-card> 
+    
+ </template>

@@ -1,0 +1,24 @@
+/* .numbertext{
+    animation-fill-mode:backwards;
+    animation-name: slide;
+    animation-duration: 10s; 
+    animation-direction:reverse;
+    animation-timing-function:steps;
+    animation-iteration-count: infinite;
+  } */
+  .cities-list-animation {
+    /* animation: slide reverse 1s backwards 10s ease;
+    animation-iteration-count: infinite; */
+    animation : slide 20s infinite;
+    
+}
+@keyframes slide {
+  100% {
+    transform : translateX(-1000%);
+  }
+  
+ }
+ .positionStyle{
+    margin-left : 1000px;
+ }
+

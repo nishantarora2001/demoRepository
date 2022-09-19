@@ -1,0 +1,71 @@
+<aura:component controller="QueryBuilderLightning" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" 
+                access="global">
+    <aura:attribute name="options" type="list" />
+    <aura:attribute name="selectedValue" type="Object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="inputs" type="list"/>
+    <aura:attribute name="pickList" type="list"/>
+    <aura:attribute name="inputValues" type="list"/>
+    <aura:attribute name="inputLabels" type="list"/>
+    
+    
+    
+    
+    
+    <!--Declare Attributes-->
+    <aura:attribute name="fields" type="List" default="[]" description="Genre Picklist Values"/>
+    <aura:attribute name="selectedGenreList" type="string[]" default="[]" description="Selected Genre Picklist Values"/>
+    
+    
+    <div>
+        <lightning:select name="Objects" label="Select object:" aura:id="onjId" value="{!v.selectedValue}" onchange="{!c.handleChange}"  >
+            <aura:iteration items="{!v.options}" var="objectName">
+                <option text="{!objectName}" value="{!objectName}"/>
+            </aura:iteration>
+        </lightning:select>
+    </div>
+    
+    <lightning:dualListbox aura:id="selectGenre"
+                           name="Genre"
+                           label="Select Genre"
+                           
+                           options="{!v.fields }"
+                           value="{!v.selectedGenreList}"
+                           
+                           />
+    
+    <lightning:button label="Open The Form" variant="Brand" onclick="{!c.handleClick}"/>
+    <lightning:button label="Save" variant="Brand" onclick="{!c.handleSaveRecord}"/>
+    
+    <aura:iteration items="{!v.inputs}" var="selectedGenreList1">
+        <div>
+            <aura:if isTrue ="{!selectedGenreList1.DataType=='BOOLEAN'}">
+                <lightning:input name="{!selectedGenreList1.apiName}" required="{!selectedGenreList1.bool}" type="checkbox" label="{!selectedGenreList1.label}" onchange="{!c.handleInput}"/>
+            </aura:if>
+            <aura:if isTrue="{!selectedGenreList1.DataType=='STRING'}">
+                <lightning:input type="text" name="{!selectedGenreList1.apiName}" required="{!selectedGenreList1.bool}" label="{!selectedGenreList1.label}" onchange="{!c.handleInput}"/>
+            </aura:if>
+            <aura:if isTrue="{!selectedGenreList1.DataType=='ID'}">
+                <lightning:input type="text" name="{!selectedGenreList1.apiName}" required="{!selectedGenreList1.bool}" label="{!selectedGenreList1.label}" onchange="{!c.handleInput}"/>
+            </aura:if>
+            <aura:if isTrue="{!selectedGenreList1.DataType=='PICKLIST'}" >
+                <lightning:combobox options="{!selectedGenreList1.picklists}" required="{!selectedGenreList1.bool}" name="{!selectedGenreList1.apiName}" label="{!selectedGenreList1.label}" onchange="{!c.handleInput}"/>
+            </aura:if>
+            <aura:if isTrue ="{!selectedGenreList1.DataType=='REFERENCE'}">
+                <lightning:input type="text"  name="{!selectedGenreList1.apiName}" required="{!selectedGenreList1.bool}" label="{!selectedGenreList1.label}" onchange="{!c.handleInput}"/>
+            </aura:if>
+            <aura:if isTrue ="{!selectedGenreList1.DataType=='TEXTAREA'}">
+                <lightning:textarea type="text"  name="{!selectedGenreList1.apiName}" required="{!selectedGenreList1.bool}" label="{!selectedGenreList1.label}" onchange="{!c.handleInput}"/>
+            </aura:if>
+            <aura:if isTrue ="{!selectedGenreList1.DataType=='DATE'}">
+                <lightning:input type="DATE"  name="{!selectedGenreList1.apiName}" required="{!selectedGenreList1.bool}" label="{!selectedGenreList1.label}" onchange="{!c.handleInput}"/>
+            </aura:if>
+            
+           
+            
+            
+            
+        </div>
+    </aura:iteration>
+    
+</aura:component>

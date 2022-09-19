@@ -1,0 +1,12 @@
+.border1{ 
+    border: 1px solid black;
+    height:fit-content;
+
+    
+
+}
+.border2{ 
+    border: 1px solid black;
+    width:200px;
+    height:120px;
+}

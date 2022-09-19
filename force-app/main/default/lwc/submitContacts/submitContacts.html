@@ -1,0 +1,48 @@
+<template>
+    <template for:each={itemList} for:item="item" for:index="index">
+    
+        <div class="slds-grid slds-gutters" key={item.id} >
+            <p>{index}</p>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="ID"></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="FirstName"></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="LastName"></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg" >
+                <lightning-input type="text" label="AccountID" value={recordID}></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="Email"></lightning-input>
+            </div>
+            <div>
+                <div style="margin-top:40px; background-color:red;">
+                    <lightning-button-icon icon-name="utility:add" accesskey={item.Id} id={index} onclick={addRow} alternative-text="Connected" size="small"
+                        title="small size">
+                    </lightning-button-icon>
+                </div>
+            </div>
+            <div>
+                <div style="margin-top:40px; margin-right:10px; background-color:yellow;">
+                    <lightning-button-icon icon-name="utility:delete" alternative-text="DisConnected" accesskey={item.Id} id={index} oneclick={removeRow} size="small"
+                        title="small size">
+                    </lightning-button-icon>
+                </div>
+    
+    
+            </div>
+            
+        </div>
+        <div class="slds-grid slds-gutters" key={item.id}>
+            <div style="margin-top:10px; margin-right:10px; background-color:yellow; margin-left:200px;">
+                <lightning-button-icon icon-name="utility:save" alternative-text="saved" size="small"
+                    title="small size">
+                </lightning-button-icon>
+            </div>
+        </div>
+    
+    </template>
+</template>

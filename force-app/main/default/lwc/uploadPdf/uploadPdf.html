@@ -1,0 +1,36 @@
+<template>
+    <lightning-card >
+        <!-- <div class="slds-hide">
+            <iframe src="/apex/uploadHelper"></iframe>
+        </div> -->
+        <!-- <div class="slds-align_absolute-center">
+            <lightning-input class="file"  type="file" label="Attachment" onchange={handleFilesChange}></lightning-input>  
+        </div>  -->
+        <!-- <div>
+        <input id="myText" type="file"  style="border:2px red; background: yellow; "/>
+        </div> -->
+        <!-- <div class="slds-page-header"  style="font-size:40px; background-color:burlywood; text-align:center">Drag your file below to Upload
+            &nbsp;&nbsp;<lightning-icon icon-name="utility:arrowdown" value={recordId} onchange={handleFilesChange} size="large"></lightning-icon>
+        </div> -->
+        <div class="dropzone slds-is-relative" >
+            <lightning-icon class="purple-world" icon-name="utility:download" label="Upload" size="large" style="margin-top:65px; margin-left:100px" ondragover={handleDrag} ondrop={handleDrop} onclick={handleCLick}></lightning-icon>
+            <span><img src={image1}/></span>
+            <!-- <p class="position">Upload Here</p> -->
+          </div>
+          <div class="output"></div>
+          <lightning-button  label="show" variant='brand' onclick={sedMessagetoVisualForce}></lightning-button>
+        <!-- <div draggable="true" style="position: relative; border: 1px solid red; width: 500px; height: 300px; line-height: 30px; text-align: center;" > 
+            <div style="margin-top:130px;">Choose File</div>
+            <input type="file"  draggable="true" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
+            
+        </div> -->
+        
+        <!-- <div class="slds-align_absolute-center">
+            <p>{fileName}</p>
+        </div>
+        </br>
+        <div class="slds-align_absolute-center slds-m-top_small">
+            <lightning-button style="width:20px" onclick={fireToVF} variant="brand" label="Upload"> </lightning-button>
+        </div>  -->
+    </lightning-card>
+    </template>

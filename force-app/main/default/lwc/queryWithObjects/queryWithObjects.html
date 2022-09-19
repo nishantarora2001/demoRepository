@@ -1,0 +1,21 @@
+<template>
+    <lightning-combobox
+               name="progress"
+               options={dropDownOPtions}
+               onchange={selectedValue}
+               >
+   </lightning-combobox>
+   <template if:true={pickListEnabled}>
+        <lightning-dual-listbox name="languages"
+            options={pickListOptions}
+            onchange={selectedFields}></lightning-dual-listbox>
+        <lightning-button label="Query" onclick={queryTheData} variant="Brand"></lightning-button>
+   </template>
+   <template if:true={showDataTable}>
+        <lightning-datatable
+            key-field="id"
+            data={data}
+            columns={dataTableValue}>
+        </lightning-datatable>
+    </template>
+</template>

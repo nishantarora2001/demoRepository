@@ -1,0 +1,158 @@
+<template>
+    <lightning-button label="Information" variant="brand" onclick={handleClick}></lightning-button>
+    <!-- <lightning-combobox
+            
+           
+           
+            options={data}
+             ></lightning-combobox> -->
+
+             <template if:true={show.modalPopup}>
+                <!-- Modal/Popup Box LWC starts here -->
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <!-- Modal/Popup Box LWC header here -->
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Cancel" onclick={handleCancel}>
+                                <lightning-icon icon-name="utility:close"
+                                    alternative-text="close"
+                                    variant="inverse"
+                                    size="small" ></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{headerModal}</h2>
+                        </header>
+                        <!-- Modal/Popup Box LWC body starts here -->
+                        <template if:true={show.pricebookPopup}>
+                        <div  class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <lightning-combobox
+                            options={options}
+                            value={selectedData}
+                            onchange={fetchRelated}
+                             ></lightning-combobox>
+                        </div>
+                    </template>
+                    <template if:true={show.productDetails}>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                            <lightning-input type="search" class="slds-align_absolute-center searchbar"  placeholder="Search"
+    style="width:fit-content" onchange={handleSearch}></lightning-input>
+                        <lightning-datatable
+                             key-field="id"
+                            data={showData}
+                            columns={cols}
+                            onchange={handleChangeAgain}>
+                        </lightning-datatable>
+                        <lightning-button label="check" onclick={handleClick}></lightning-button>
+                        
+                    </div>
+                    </template>
+                    <template if:true={show.productEdit}>
+                        
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                                <thead>
+                                    <tr class="slds-line-height_reset ">
+                                        <th >
+                                             <div class="slds-truncate" title="Product" >Product</div>
+                                        </th>
+                                        <th >
+                                            <div class="slds-truncate" title="Quantity" >Quantity</div>
+                                       </th>
+                                        <th >
+                                            <div class="slds-truncate" title="Date" >Date</div>
+                                        </th>
+                                        <th >
+                                            <div class="slds-truncate" title="Price" >List Price</div>
+                                        </th>
+                                        <th >
+                                            <div class="slds-truncate" title="Description" >Description</div>
+                                        </th>
+                                        <th>
+                                            <div class="slds-truncate" title="delete">Hello</div>
+                                        </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <template if:true={selectedRecords} for:each={selectedRecords} for:item="item" for:index="index">
+                                        <tr class="slds-hint-parent" key={item.Id}>
+                                            <td>
+                                                <div>{item.Name}</div>
+                                            </td>
+                                            <td>
+                                                
+                                                    <lightning-input variant="label-hidden" name="Quantity" title="Quantity" type="integer" data-index={index}  onchange={handleChange} ></lightning-input>
+                                                
+                                            </td>
+                                            <td>
+                                                <lightning-input variant="label-hidden" title="date" name="date" type="date"  data-index={index}  onchange={handleChange} ></lightning-input>
+                                            </td>
+                                            <td>
+                                                <lightning-input variant="label-hidden" name="UnitPrice" type="number" formatter="Currency" data-index={index} value={item.UnitPrice} onchange={handleChange}></lightning-input>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="text" variant="label-hidden" name="Description" data-index={index} onchange={handleChange}></lightning-input>
+                                            </td>
+                                            <td>
+                                                <lightning-button-icon icon-name="utility:delete" data-index={index} class="test slds-m-left_xx-small" name="Delete" onclick={handleClick}></lightning-button-icon>
+                                        </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+
+                        
+                    </template>
+                        <!-- Modal/Popup Box LWC footer starts here -->
+                        <footer class="slds-modal__footer">
+                            <button if:false={show.pricebookPopup} class="slds-button slds-button_brand" onclick={handleClick} title="Previous">Previous</button>
+                            <button class="slds-button slds-button_neutral"  onclick={handleCancel} title="Cancel">Cancel</button>
+                            
+                            <button class="slds-button slds-button_brand" onclick={handleClick} title="Next">Next</button>
+                            
+                        
+                        <!-- <template if:true={selectProduct}>
+                            <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                            <button class="slds-button slds-button_brand" onclick={handleNextAgain2} title="Next">Next</button>
+                        </template> -->
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </template>
+
+
+
+
+
+            <template if:true={show.showPricebookChangePopup}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container popup2">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="cancel" onclick={handleCancel2} >
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" onclick={handleCancel2}></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-04" class="slds-text-heading_medium slds-hyphenate">Confirm Price Book Change</h2>
+                    </header>
+
+                    <div class="slds-modal__content popup3 slds-p-around_medium" id="modal-content-id-9">
+
+                        You have changed the price book for this opportunity. This action permanently deletes all products from the opportunity. Continue?
+                    </div>
+
+
+
+                    <footer class="slds-modal__footer">
+                            
+                        <button class="slds-button slds-button_neutral"  onclick={handleClick} title="No">No</button>
+                        <button class="slds-button slds-button_brand" onclick={handleClick}  title="Yes">Yes</button>
+                    
+                    </footer>
+                </div>
+            </section>
+        </template>
+</template>

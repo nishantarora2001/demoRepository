@@ -1,0 +1,21 @@
+<template>
+    <lightning-card style="width: 500px;">
+        <div class="slds-hide">
+            <iframe src="/apex/postMessageuploder"></iframe>
+        </div>
+        <div class="slds-align_absolute-center">
+            <lightning-input type="file" label="Attachment" onchange={handleFilesChange}></lightning-input>  
+        </div> 
+        </br>
+        <div class="slds-align_absolute-center">
+            <p>{fileName}</p>
+        </div>
+        </br>
+        <div class="slds-align_absolute-center slds-m-top_small">
+            <lightning-button onclick={fireToVF} variant="brand" label="Upload"> </lightning-button>
+        </div> 
+        <lightning-datatable>
+            
+        </lightning-datatable>
+    </lightning-card>
+    </template>

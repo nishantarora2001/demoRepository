@@ -1,0 +1,10 @@
+<template>
+    <template if:true={playButtonEnable}>
+        <div class="playpause" onclick={changebuttonToPause}>
+            <label for="playpause"></label>
+        </div>
+    </template>
+    <template if:true={pauseButtonEnable}>
+        <div class="play-btn" onclick={changebuttonToPlay}></div>
+    </template>
+</template>

@@ -1,0 +1,115 @@
+:host {
+  --animate: 2.5s;
+  --pause: 10s;
+  --totall-duration: calc(var(--animate) * 2 + var(--pause) * 2);
+}
+
+.container {
+  width: 1000px;
+  height: 250px;
+  overflow: hidden;
+  margin-left : 150px;
+  border-radius: 10px;
+ 
+}
+
+.slider-wrapper {
+  width: 200%;
+  display: flex;
+  position: relative;
+}
+
+.image {
+  display: flex;
+  width: 500px;
+  height: 328px;
+}
+
+.hero-image-1 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: slide-out-image-1 var(--totall-duration) 3s infinite;
+  animation-iteration-count : infinite;      
+}
+/* start + pause + start + pause = totall */
+/* 2.5s + 3s + 2.5s + 3s = 11s*/
+@keyframes slide-out-image-1 {
+  
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-25%);
+  }
+   20%{
+        transform : translate(-50%)
+        }
+        30%{
+        transform : translate(-75%)
+        }
+     40%{
+        transform : translate(-100%)
+        }
+     50%{
+        	transform : translate(100%)
+        }
+     60%{
+        	transform : translate(75%)
+        }
+       70%{
+        	transform : translate(50%)
+        }
+        90%{
+        	transform : translate(25%)
+        }
+        100%{
+        	transform : translate(0%)
+        }
+
+}
+
+.hero-image-2 {
+  top: 0;
+  right: 0;
+  position: absolute;
+  animation: slide-in-image-2 var(--totall-duration) 3s
+    infinite;
+        
+}
+
+/* start + pause + start + pause = totall */
+/* 2.5s + 3s + 2.5s + 3s = 11s*/
+@keyframes slide-in-image-2 {
+
+ 0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-25%);
+  }
+        20%{
+        	transform: translate(-50%);
+        }
+    30%{
+        transform : translate(-75%)
+        }
+        40%{
+        transform : translate(-100%)
+        }
+        50%{
+        	transform: translate(-100%)
+        }
+        60%{
+        	transform : translate(-125%)
+        }
+        70%{
+        	transform : translate(-150%)
+        }
+        90%{
+        	transform : translate(-175%)
+        }
+        100%{
+        	transform : translate(-200%)
+        }
+}

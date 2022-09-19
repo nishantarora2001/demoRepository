@@ -1,0 +1,19 @@
+<template>
+    <lightning-card>
+        <div style="padding-left:300px">
+        <lightning-input style="display:inline-block"  type="search" placeholder="search the city by Name"  onchange={handleCity}></lightning-input>
+        <lightning-button label="Show Temp" onclick={handleTempreature} variant="Brand"></lightning-button>
+    </div>
+        <template if:true={isShowable}>
+        <div>
+            
+            <lightning-icon style="background-color: #6868dd;" icon-name="custom:custom97"></lightning-icon>&nbsp;&nbsp;
+            <span class="weatherCss" style="border: 2px solid #6868dd; background-color: #6868dd; border-radius:10px;">Temp : {data.tempreature} °C</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <lightning-icon style="margin-top:-3px" icon-name="custom:custom95"></lightning-icon>&nbsp;&nbsp;
+            <span class="weatherCss" style="background-color: #70bd73; border: 2px solid #70bd73; border-radius: 10px;">Pressure : {data.pressure} Pa</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <lightning-icon style="margin-top:-3px" icon-name="custom:custom60"></lightning-icon>&nbsp;&nbsp;
+            <span class="weatherCss" style="    background-color: #b76472; border: 2px solid #b76472; border-radius: 10px;">Humidity : {data.humidity} %</span>
+        </div>
+    </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,35 @@
+<template>
+    <!-- <template if:true={dataTableShow}>
+        <lightning-datatable
+          key-field="id"
+          data={dataforDataTable}
+          columns={dataTableColumns}>
+        </lightning-datatable>    
+    </template> -->
+    <template if:true={dataTableShow}>
+                        
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+          <thead >
+              <tr class="slds-line-height_reset" >
+                  <th for:each={dataTableColumns} for:item="item" key={item.Id}>
+                       <p class="slds-truncate" key={item.Id} title={item.label}>{item.fieldName}</p>
+                  </th>
+                 
+              </tr>
+
+          </thead>
+          <tbody>
+                  <tr class="slds-hint-parent" for:each={dataforDataTable} for:item="item1" key={item1.Id} for:index="index">
+                      <td for:each={item1} for:item="item2" key={item2} for:index="index">
+                          <div>
+                            <p data-index={index}>{item2}</p>
+                          </div>
+                         
+                      </td>    
+                  </tr>
+          </tbody>
+      </table>
+
+  
+</template>
+</template>

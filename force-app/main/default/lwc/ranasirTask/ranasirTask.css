@@ -1,0 +1,29 @@
+.help-text-icon{
+    width: 1rem;
+    fill : #0176d3;
+}
+.show-info-icon{
+    display : none;
+}
+.divBackground .svg-css{
+    width: 300px;
+    margin-bottom: 2px;
+}
+.divBackground{ 
+    background-color: blue;;
+}
+.divBackground .showText{ 
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+.divBackground .svg-css:hover  + .showText{
+     
+    visibility: visible;
+}

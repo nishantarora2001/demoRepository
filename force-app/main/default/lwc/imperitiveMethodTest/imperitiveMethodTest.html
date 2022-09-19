@@ -1,0 +1,13 @@
+<template>
+    <lightning-card>
+        <div>
+            <lightning-button class="buttonClass" label="show Accounts" onclick={handleAccounts} variant="Brand"></lightning-button>
+        </div>
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="item">
+                <h4 key={item.Id} data-id='test' class="nishant">{item.Name}</h4>
+            </template>
+        </template>
+
+    </lightning-card>
+</template>

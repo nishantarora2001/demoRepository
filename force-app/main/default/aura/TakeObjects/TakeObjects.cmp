@@ -1,0 +1,10 @@
+<aura:component controller="QueryBuilderLightning" access="global" implements="force:appHostable">
+    <aura:attribute name="objInfo" type="account" default="{sobjectType : 'Account'}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="select-01">Select Industry</label>
+        <div class="slds-select_container">
+            <ui:inputSelect  aura:id="accIndustry" class="slds-select"  change="{!c.onPicklistChange}"/>
+        </div>
+    </div>
+</aura:component>

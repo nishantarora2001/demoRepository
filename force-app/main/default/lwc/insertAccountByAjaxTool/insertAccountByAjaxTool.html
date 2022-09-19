@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-grid slds-gutter">
+        <div class="slds-hide">
+            <iframe src="/apex/AccountCreation"></iframe>
+        </div>
+        <div>
+            <lightning-input label="NAME" value={rec.NAME} onchange={handleclick}></lightning-input>
+        </div>
+        <div>
+            <lightning-input label="PHONE" value={rec.PHONE} onchange={handleclick}></lightning-input>
+        </div>
+        <div>
+            <lightning-button label="Submit" varient="brand" onclick={GetFile}></lightning-button>
+        </div>
+
+    </div>
+</template>

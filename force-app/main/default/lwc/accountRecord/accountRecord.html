@@ -1,0 +1,86 @@
+<template>
+    <lightning-card>
+        <template for:each={itemList} for:item="item" for:index="index">
+            <lightning-record-edit-form key={item.id} object-api-name="Contact">
+                <lightning-messages> </lightning-messages>
+                <lightning-layout multiple-rows>
+                    <span>
+                        <p class="set">Sr.No</p>
+                        <p class='edit'>{index}</p>
+                    </span>
+                    
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="FirstName" variant="label-stacked" required>
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="LastName" variant="label-stacked" required>
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" type="number" inputmode="numeric" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="Phone" type="number" inputmode="numeric" maxlength="10" pattern="\d{10}" variant="label-stacked" required>
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    
+                    
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="Title" variant="label-stacked" required>
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="Email" type="Email" variant="label-stacked" required>
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small" class="slds-hide">
+                        <lightning-input-field field-name="AccountId" variant="label-stacked" value={recordId}>
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <div class="slds-p-top_medium, edit1">
+                            <lightning-icon icon-name="action:new" access-key={item.id} id={index}
+                                alternative-text="Add Row" size="small" title="Add Row" onclick={addRow}>
+                            </lightning-icon>
+                        </div>
+                        <div class="slds-p-top_medium, edit2">
+                            <lightning-icon icon-name="action:delete" access-key={item.id} id={index}
+                                alternative-text="Delete Row" size="small" title="Delete Row" onclick={removeRow}>
+                            </lightning-icon>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+            </lightning-record-edit-form>
+        </template>
+        </br>
+        <div>
+            <footer class="slds-modal__footer" style="padding: 0.50rem 1rem;">
+                <div style="display:inline;">
+                    <lightning-button icon-name="utility:save" variant="brand" label="Save" title="Save"
+                        onclick={handleSubmit}></lightning-button>
+                </div>
+                <div class="slds-m-left_large" style="display:inline">
+                    <lightning-button icon-name="utility:reset_password" variant="brand" label="Reset" title="Reset"
+                        onclick={handleReset}></lightning-button>
+                </div>
+            </footer>
+        </div>
+
+        
+    </lightning-card>
+    <Lightning-card title="Nishant's org">
+        <div style="height:200px;">
+            <lightning-datatable
+                key-field="ID"
+                data={data}
+                columns={columns}>   
+            </lightning-datatable>
+        </div>
+    </Lightning-card>
+</template>

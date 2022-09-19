@@ -1,0 +1,36 @@
+<aura:component>
+    
+    <aura:attribute name="colors" type="String[]"/>
+    <aura:attribute name="selectedColor1" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onchangefield}" />
+    
+    <aura:attribute name="fields" type="String[]"/>
+    <aura:attribute name="seletedfields" type="String"/>
+    <aura:handler name="doInit" value="{!this}" action="{!c.loadOptions}"/>
+    
+    
+  
+    
+    <lightning:select aura:id="select1-id" label="SELECT A COLOUR">
+        <aura:iteration items="{!v.colors}" var="color">
+            <option value="{!color.value}" text="{!color.label}">
+            	
+            </option>
+            
+        </aura:iteration>
+        
+        
+    </lightning:select>
+
+
+	<lightning:select aura:id="select-id2" label="selectfield" onchange="{!c.onField}">
+        <aura:iteration items="{!v.fields}" var="field">
+        	<option value="{!field.value}" text="{!field.label}"></option>
+        </aura:iteration>
+    </lightning:select>    
+   
+    
+    
+    
+</aura:component>

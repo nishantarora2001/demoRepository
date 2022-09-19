@@ -1,0 +1,82 @@
+<template>
+    <lightning-card title="Insert Contact" icon-name="standard:contact">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12 ">
+                <lightning-input label="FirstName" value={rec.FirstName} onchange={handleEvent}></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12">
+                <lightning-input label="LastName" value={rec.LastName} onchange={handleEvent}></lightning-input>
+            </div>
+
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12">
+                <lightning-input label="Phone" value={rec.Phone} onchange={handleEvent}></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12">
+                <lightning-input label="Email" value={rec.Email} onchange={handleEvent}></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg " style="margin-top:24px"><lightning-button label="Save" onclick={handleClick} variant="brand"></lightning-button></div>
+
+        </div> 
+        
+            <!-- <div class="slds-p-around_x-small slds-clearfix slds-m-bottom_x-large slds-align_absolute-center  slds-m-left_xx-large slds-m-right_xx-large">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-float_left slds-m-right_xx-large  " style="width: 200px;"><lightning-input label="FirstName" value={rec.FirstName} onchange={handleEvent}></lightning-input></div>
+                    <div class="slds-float_left slds-m-right_xx-large" style="width: 200px;"><lightning-input label="LastName" value={rec.LastName} onchange={handleEvent}></lightning-input></div>
+                </div>
+                <div class="slds-grid slds-gutters">   
+                    <div class="slds-float_left slds-m-right_xx-large" style="width: 200px;"><lightning-input label="Phone" value={rec.Phone} onchange={handleEvent}></lightning-input></div>
+                    
+                    <div class="slds-float_left" style="width: 200px;"><lightning-input label="Email" value={rec.Email} onchange={handleEvent}></lightning-input></div>
+                <br/>
+                </div>
+            </div> -->
+            <!-- <div class="slds-clearfix slds-align_absolute-center">
+                <div class=" slds-float_left slds-m-right_xx-large slds-m-bottom_xx-large"><lightning-button label="Save" onclick={handleClick} variant="brand"></lightning-button></div>
+                
+            </div> -->
+
+    <div><p>Record DataTable</p></div>
+    <lightning-combobox
+    name="progress"
+    label="Show"
+    value=""
+    placeholder={recordsVisiblePerPage}
+    options={options}
+    onchange={handleCombox} style="width:fit-content; padding:10px" ></lightning-combobox>
+     <!-- <div class="slds-m-bottom_small">
+        <lightning-input type="text"
+           value={keyWord}
+           label="Contact Name"
+           onchange={handleChangeKeyword}
+           ></lightning-input>
+           <lightning-button label="Search"
+          onclick={handleKeyWordChange}
+          variant="brand"></lightning-button>
+     </div>  -->
+      <lightning-input type="search" class="slds-align_absolute-center searchbar" value={keyword} placeholder="Search"
+            onchange={handleKeyWordChange} style="width:fit-content">
+        </lightning-input>
+        
+        
+                
+    <div class=" slds-m-bottom_xx-large  slds-m-right_x-large slds-m-left_x-large ">
+    <lightning-datatable 
+    class="slds-table slds-table_bordered slds-table_striped"
+    key-field="Id"
+    data={visibleRecords}
+    columns={columns} hide-checkbox-column="true">
+
+    </lightning-datatable>
+</div>
+        <div style="padding:10px; margin-bottom:-30px" >Page {currentPage} / {totalPage}</div>
+       <span class="slds-align_absolute-center">
+        <span class="slds-m-right_x-small"><lightning-button label="First" disabled={prev_First_Button_Disable} onclick={firstButtonHandle} variant="brand"></lightning-button></span>
+        <span class="slds-m-right_large"><lightning-button label="Previous" disabled={prev_First_Button_Disable} onclick={previousButtonHandle} icon-name="utility:back"></lightning-button></span>
+        <p>Search page:  {start} / {finish}</p>
+        <span class="slds-m-left_large"><lightning-button label="Next" disabled={next_Last_Button_Disable} onclick={nextButtonHandle} icon-name="utility:forward" icon-position="right"></lightning-button></span>
+        <span class="slds-m-left_x-small"><lightning-button label="Last" disabled={next_Last_Button_Disable} onclick={lastButtonHandle}  variant="brand"></lightning-button></span>
+       </span>
+        </lightning-card>
+</template>

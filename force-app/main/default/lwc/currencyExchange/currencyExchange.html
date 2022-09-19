@@ -1,0 +1,10 @@
+<template>
+    <lightning-combobox
+            
+            value={value}
+            placeholder="Select Currency Type"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+
+            <div style="background-color:black; text-align:center; color:white" class="border"><p>{amount}$  in {selectedCurrency} ==> {currencyConverted}</p></div>
+</template>

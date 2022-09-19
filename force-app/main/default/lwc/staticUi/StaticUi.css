@@ -1,0 +1,39 @@
+/* .example.Text4 span, .example.Text4 {
+    writing-mode: sideways-lr;
+    -webkit-writing-mode: sideways-lr;
+    -ms-writing-mode: sideways-lr;
+  } */
+
+  /* .example.Text4 span, .example.Text4{ 
+      
+      
+      
+  } */
+  /* .vertical {
+    border-left: 6px solid black;
+    height: 200px;
+    position:absolute;
+    left: 50%;
+}
+   */
+/* 
+   .rotate {
+
+    -webkit-transform:rotate(-90deg); 
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+   }   */
+   .abs {
+    position: absolute;
+  left: 15px;
+  text-align: right;
+  color: rgba(255,192,0,255);
+  letter-spacing: 1px;
+    }
+.border
+{
+  border: 2px solid rgba(181,201,225,255);
+  width: inherit;
+  height: 250px;
+  margin: 15px;
+}

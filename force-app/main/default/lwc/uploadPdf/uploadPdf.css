@@ -1,0 +1,26 @@
+.dropzone{ 
+    border-radius:30px;
+    border-width: 700px;
+    margin:10px auto;
+    width:280px;
+    height:240px;
+    border: 1px solid white;
+    /* background-color:rgba(152, 147, 168, 0.514); */
+}
+/* .border{ 
+    border:1px solid red;
+    width:fit-content;
+    height:fit-content;
+} */
+
+.position{ 
+    position: absolute;
+    top:120px;
+    left:85px;
+    color:black;
+    font-size:15px;
+}
+.purple-world{
+    --sds-c-icon-color-foreground: purple;
+    --sds-c-icon-color-background: black;
+}

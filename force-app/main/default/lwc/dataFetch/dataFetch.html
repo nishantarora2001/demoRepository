@@ -1,0 +1,62 @@
+<template>
+    <lightning-card title="Record with Field Integrity" icon-name="standard:account" >
+            <div class="slds-p-around_x-small">
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-p-around_medium lgc-bg">
+                        <lightning-input label="firstName" value={rec.FirstName} onchange={handleNameChange}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                        <lightning-input label="fastName" value={rec.LastName} onchange={handleIndChange}></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-p-around_medium lgc-bg">
+                        <lightning-input type="Phone" label="Phone" value={rec.Phone} onchange={handlePhnChange}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                        <lightning-input type="Email" label="Email" value={rec.Email} onchange={handleEmailChange}></lightning-input>
+                    </div>
+                </div>
+            
+                <!-- <lightning-input label="FirstName" value={rec.FirstName} onchange={handleNameChange}></lightning-input>
+                <lightning-input label="LastName" value={rec.LastName} onchange={handleIndChange}></lightning-input>
+                <lightning-input type="Phone" label="Phone" value={rec.Phone} onchange={handlePhnChange}></lightning-input>
+                <lightning-input type="Email" label="Email" value={rec.Email} onchange={handleEmailChange}></lightning-input>
+                <lightning-input type="AccountId" label="AccountId" ></lightning-input>  -->
+                
+
+                
+                
+                <lightning-button-icon icon-name="utility:save" alternative-text="saved" size="small" onclick={handleClick}
+                 title="small size"></lightning-button-icon>
+                 <lightning-button-icon icon-name="utility:show" alternative-text="shown" size="small" onclick={handleShow}
+                 title="small size"></lightning-button-icon>
+            </div>
+            
+
+        </lightning-card>
+        <Lightning-card title="Nishant's org" object-api-name="obj">
+           
+                <lightning-datatable
+                    key-field="Id"
+                    data={recordsToDisplay}
+                    columns={columns}>   
+                </lightning-datatable>
+                <div class="slds-m-top_small slds-m-bottom_medium">
+                    <lightning-button variant="brand" label="First" title="Primary action"
+                        onclick={handleFirstPage} class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button  variant="brand" label="Previous" title="Primary action"
+                        onclick={handlePrevPage} class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button  variant="brand" label="Next" title="Primary action"
+                        onclick={handleNextPage} class="slds-m-left_x-small "></lightning-button>
+                    <lightning-button  variant="brand" label="Last" title="Primary action"
+                        onclick={handleLastPage} class="slds-m-left_x-small "></lightning-button>
+                </div>
+    
+        </Lightning-card>
+        
+            
+            
+            
+</template>

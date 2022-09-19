@@ -1,0 +1,227 @@
+.border{ 
+    border: 1px solid rgba(181,201,225,255);
+    width:410px;
+    height: 230px;
+    margin: 15px;
+
+}
+.project-position
+{
+  position: absolute;
+  bottom: -110px;
+  right:40px; 
+  background: white;
+  padding: 0px 12px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 52px;
+  color: rgba(124,160,198,255);
+}
+.complete-project
+{
+  position: absolute;
+  bottom: 45px;
+  left: 5px;
+  text-align: left;
+  color: rgba(255,192,0,255);
+  letter-spacing: 1px;
+}
+.list
+{
+  color: rgba(89,131,176,255);
+  font-size: 13.5px;
+}
+.list2{
+    position: absolute;
+   transform: rotate(270deg); 
+  border-bottom: 1px solid rgba(89,131,176,255) ;
+  left:25px;
+  top:60px;
+  
+
+}
+.list3
+{
+  position: absolute;
+  top: 24px;
+  left: 110px;
+  font-weight: 500;
+  color:blue;
+
+}
+.project-detail
+{
+  position: absolute;
+  bottom: 40px;
+  
+  text-align: center;
+  left:110px;
+  color: rgba(133,133,133,255);
+  font-weight: 500;
+  font-size: 13.5px;
+}
+.project-position
+{
+  position: absolute;
+  bottom: -50px;
+  right:40px; 
+  background: white;
+  padding: 0px 12px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 52px;
+  color: rgba(124,160,198,255);
+}
+.active-project
+{
+  position: absolute;
+  top:-10px;
+  left: 5px;
+  text-align: left;
+  color: rgba(255,192,0,255);
+  letter-spacing: 1px;
+}
+.active-project1
+{
+  position: absolute;
+  top:25px;
+  left: 10px;
+  text-align: left;
+  color: rgba(255,192,0,255);
+  letter-spacing: 1px;
+}
+.Rotate{ 
+    position:absolute;
+    top:65px;
+    left:70px;
+    transform: rotate(270deg); 
+    border-bottom: 1px solid rgba(89,131,176,255) ;
+
+}
+.Take{ 
+    position:absolute;
+    top:25px;
+    left:150px;
+
+}
+.project-detail1
+{
+  position: absolute;
+  bottom: 30px;
+  
+  text-align: center;
+  left:110px;
+  color: rgba(133,133,133,255);
+  font-weight: 500;
+  font-size: 13.5px;
+}
+
+.border2{ 
+    height:230px;
+    width:409px;
+    
+    border: 1px solid rgba(181,201,225,255);
+    margin: 15px;
+}
+.putdiv{ 
+    
+    position:absolute;
+    left:25px; 
+    top:45px;
+    text-align: left;
+  color: rgba(255,192,0,255);
+  letter-spacing: 1px;
+}
+.take2{ 
+    position:absolute;
+    top:64px;
+    left:55px;
+    transform: rotate(270deg); 
+    border-bottom: 1px solid rgba(89,131,176,255) ;
+}
+.take3{ 
+    position:absolute;
+    top:10px;
+    left:130px;
+
+}
+.project-detail2{ 
+    position : absolute;
+    left:110px;
+    top:160px;
+    color: rgba(133,133,133,255);
+    font-weight: 500;
+    font-size: 13.5px;
+}
+.take4{ 
+    position:absolute;
+    left:10px; 
+    top:65px;
+    transform: rotate(270deg);
+    border-bottom: 1px solid rgba(89,131,176,255) ;
+}
+.takeone{ 
+    position:absolute;
+    left:91px;
+    top:10px;
+
+}
+.project-detail3{ 
+    position : absolute;
+    left:115px;
+    top:160px;
+    color: rgba(133,133,133,255);
+    font-weight: 500;
+    font-size: 13.5px;
+}
+.project-position2
+{
+  position: absolute;
+  top: -20px;
+  left:190px; 
+  background: white;
+  /* padding: 0px 12px; */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 25px;
+  color: rgba(255,192,0,255);
+}
+.border4{ 
+    border: 1px solid rgba(255,192,0,255);
+    width:410px;
+    height: 230px;
+    margin: 15px;
+
+}
+.set{ 
+    position:absolute;
+    top:20px;
+    left:9px;
+    font-size:10px;
+    color: rgba(133,133,133,255);
+}
+.settwo{ 
+    position:absolute;
+    top:20px;
+    font-size:10px;
+    left:70px;
+    color: rgba(133,133,133,255);
+}
+.setall{ 
+    position:absolute;
+    top:70px;
+    font-size:10px;
+    left:10px;
+    color: rgba(133,133,133,255);
+
+}
+.setthree{ 
+    position:absolute;
+    top:70px;
+    font-size:10px;
+    left:70px;
+    color: rgba(133,133,133,255);
+}
+@media screen and(min-width :100px)
+{ 
+    .active-project{ 
+        background-color:aqua;
+    }
+}

@@ -1,0 +1,148 @@
+<template>
+    <lightning-card>
+    <lightning-tabset active-tab-value={eventholder}>
+        <lightning-card>
+        <lightning-tab label="Contact Details"  value="1" onactive={handleclick} > 
+            
+            <div class="slds-grid slds-gutters">
+                <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12 " style="width:fit-content;  margin-left:80px">
+                    <lightning-input label="FirstName" value={rec.FirstName} onchange={handleEvent} ></lightning-input>
+                </div>
+                <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                    <lightning-input label="LastName" value={rec.LastName} onchange={handleEvent} ></lightning-input>
+                </div>
+    
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                    <lightning-input label="Phone" value={rec.Phone} onchange={handleEvent}></lightning-input>
+                </div>
+                <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                    <lightning-input label="Email" value={rec.Email} onchange={handleEvent}></lightning-input>
+                </div>
+                <div class="slds-p-around_medium lgc-bg " style="margin-top:24px; margin-left:300px"><lightning-button label="Save" onclick={handleStore} variant="brand"></lightning-button></div>
+    
+            </div> 
+            <lightning-button variant="brand" label="Next"  onclick={goNext} class="slds-m-left_x-small"></lightning-button>
+           
+            
+            
+        </lightning-tab>
+        
+        
+            <lightning-tab label="Account Details" value="2" onactive={handleclick}>  
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12 " style="width:fit-content; margin-left:80px">
+                        <lightning-input label="Name" value={rec1.Name} onchange={handleEvent2}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                        <lightning-input label="NumberOfEmployee" value={rec1.NumberOfEmployee} onchange={handleEvent2} ></lightning-input>
+                    </div>
+        
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                        <lightning-input label="Phone" value={rec1.Phone} onchange={handleEvent2}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                        <lightning-input label="AccountNumber" value={rec1.AccountNumber} onchange={handleEvent2} b></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg " style="margin-top:24px; margin-left:300px"><lightning-button label="Save" onclick={handleStore2} variant="brand"></lightning-button></div>
+                    
+                </div>
+                <lightning-button variant="brand" label="Next"  onclick={goNext2} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand" label="Previous"  onclick={goBack} class="slds-m-left_x-small"></lightning-button>
+                
+                 
+            </lightning-tab>
+            <lightning-tab label="Address Details" value="3" onactive={handleclick}>  
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12 " style="width:fit-content; margin-left:80px">
+                        <lightning-input label="ShippingCity" value={rec2.ShippingCity} onchange={handleEvent3}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                        <lightning-input label="ShippingCountry" value={rec2.ShippingCountry} onchange={handleEvent3} ></lightning-input>
+                    </div>
+        
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                        <lightning-input label="ShippingState" value={rec2.ShippingState} onchange={handleEvent3}></lightning-input>
+                    </div>
+                    
+                    <!-- <div class="slds-p-around_medium lgc-bg , slds-col slds-size_5-of-12" style="width:fit-content;  margin-left:80px">
+                        <lightning-input label="ShippingStreet" value={rec2.ShippingStreet} onchange={handleEvent3} b></lightning-input>
+                    </div> -->
+                    <div class="slds-p-around_medium lgc-bg " style="margin-top:24px; margin-left:300px"><lightning-button label="Save" onclick={handleStore3} variant="brand"></lightning-button></div>
+        
+                </div>
+                <lightning-button variant="brand" label="Next"  onclick={goNext3} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand" label="Previous"  onclick={goBack1} class="slds-m-left_x-small"></lightning-button>
+               
+                
+                 
+            </lightning-tab>
+            
+            </lightning-card>
+            
+            <lightning-tab label="Preview" value="4" onactive={handleclick}>
+                <lightning-card>
+                <lightning-card  title="Contact Details"> 
+                    <div title="Contact Details" class="slds-box"> 
+                    <div>
+                        <h1>Contact-FirstName&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord.FirstName}</h1>
+                    </div>
+                    <div style="margin-left:500px; margin-top:-20px">
+                        <h1>Contact-Phone&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord.Phone}</h1>
+                    </div>
+                    <div style="margin-top:50px">
+                        <h1>Contact-Email&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord.Email}</h1>
+                    </div>
+                    <div style="margin-left:500px; margin-top:-20px">
+                        <h1>Contact-LastName&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord.LastName}</h1>
+                    </div>
+                </div>
+            </lightning-card>
+            <lightning-card  title="Account Details"> 
+                <div title="Contact Details" class="slds-box"> 
+                <div>
+                    <h1><b>Account-Name&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord2.Name}</b></h1>
+                </div>
+                <div style="margin-left:500px; margin-top:-20px">
+                    <h1><b>Account-Phone&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord2.Phone}</b></h1>
+                </div>
+                <div style="margin-top:50px">
+                    <h1><b>Account-Number&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord2.AccountNumber}</b></h1>
+                </div>
+                <div style="margin-left:500px; margin-top:-20px">
+                    <h1><b>Account-Employees&nbsp;&nbsp;&nbsp;&nbsp;:{colRecord2.NumberOfEmployee}</b></h1>
+                </div>
+                <div style="margin-left:650px; margin-top:50px" >
+                    <lightning-button icon-name="utitlity:save" variant="brand" style="background-color:blue" label="Submit" onclick={handleclicksave}></lightning-button>
+                </div>
+                <div style="margin-top:-32px; margin-left:450px" >
+                <lightning-button  variant="brand" label="Reset" title="Reset" onclick={handleReset} ></lightning-button>
+                <lightning-button variant="brand" label="Previous"  onclick={goBack3} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+        </lightning-card>
+        </lightning-card>
+                <!-- <div title="Contact Details" class="slds-box">
+                    <div>
+                        <lightning-button icon-name="utitlity:save" label="Save" onclick={handleclicksave}></lightning-button>
+                    </div>
+                </div> -->
+                    
+                    
+                   
+                  
+            </lightning-tab>
+            
+            
+            
+        
+    </lightning-tabset>
+</lightning-card>
+</template>
